@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ tag_tittle }}</title>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <header>
+            <a href="{ url 'home' % }">
+                <h1>Projects</h1>
+            </a>
+        </header>
+
+        <nav>
+            <a href="{ url 'home' % }">Início</a>
+        </nav>
+
+        <main>
+
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+            <div>&copy; 2026 Projects</div>
+        </footer>
+
+
+    </div>
+
+</body>
+
+</html>
