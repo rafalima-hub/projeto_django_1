@@ -2,13 +2,21 @@ from django.shortcuts import render
 
 from django.conf import settings
 
+from projects.models import Post
+
 
 def home(request):
 
-    context = { 'tag_tittle': f'{settings.SITENAME}' }
-    
+    posts = Post.objects.filter(
+        is_active=True
+    ).order_by('-created_at')
+
+    contexto = {
+        'tag_title': f'{settings.SITENAME}',
+        'posts' : posts
+    }
     return render(
-        request,
+        request, 
         'projects/home.html',
-        context
+        contexto
     )
