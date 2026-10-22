@@ -19,15 +19,24 @@
 
         <nav>
             <a href="{ url 'home' % }">Início</a>
+
+            {% if user.is_authenticated %}
+            Olá, {% csrf_token %}
+            <form method="POST" action="{% url 'logout' %}" style="display: incline;">
+                {% csrf_token %}
+                <button type="submit">Sair</button>
+            </form>
+            {% else %}
+            <a href="{% url 'login' %}">Entrar</a>
+            {% endif %}
         </nav>
 
         <main>
-
             {% block content %}{% endblock %}
         </main>
 
         <footer>
-            <div>&copy; 2026 Projects</div>
+            <div>&copy; 2026 {{ site_name }}</div>
         </footer>
 
 

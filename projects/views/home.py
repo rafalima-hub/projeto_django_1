@@ -7,16 +7,21 @@ from projects.models import Post
 
 def home(request):
 
+    # Obtém os posts ordenados pelos mais recentes
+    # Filtrados por 'is_activate' e 'is_deleted'
     posts = Post.objects.filter(
         is_active=True
     ).order_by('-created_at')
 
-    contexto = {
-        'tag_title': f'{settings.SITENAME}',
-        'posts' : posts
-    }
+    # Total de regitros
+    total = len(posts)
+
     return render(
-        request, 
+        request,
         'projects/home.html',
-        contexto
+        {
+            'tag_title': f'{settings.SITENAME}',
+            'posts': posts,
+            'total': total
+        }
     )
