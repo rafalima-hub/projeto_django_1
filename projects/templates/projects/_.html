@@ -21,7 +21,7 @@
             <a href="{ url 'home' % }">Início</a>
 
             {% if user.is_authenticated %}
-            Olá, {% csrf_token %}
+            Olá, {{ user.username }}! |
             <form method="POST" action="{% url 'logout' %}" style="display: incline;">
                 {% csrf_token %}
                 <button type="submit">Sair</button>

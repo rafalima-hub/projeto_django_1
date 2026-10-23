@@ -1,7 +1,7 @@
 from django.conf import settings
 
 
-def global_centext(request):
+def global_context(request):
     return{
         'site_name': settings.SITENAME,
     }

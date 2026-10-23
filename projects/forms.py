@@ -1,5 +1,5 @@
-from tokenize import Comment
 from django import forms
+from .models import Comment
 
 
 class CommentForm(forms.ModelForm):
@@ -8,7 +8,7 @@ class CommentForm(forms.ModelForm):
         fields = ['comment']
         labels = {'comment': ''}
         widgets = {
-            'comment': forms.Textarea(atrs={
+            'comment': forms.Textarea(attrs={
                 'rows': 3,
                 'placeholder': 'Escreva seu comentário...',
             })

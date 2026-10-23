@@ -62,7 +62,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'projects.context_processors.glibal_context'
+                'projects.context_processors.global_context'
             ],
         },
     },
@@ -145,3 +145,20 @@ MAILERS = {
 # Dados de Projects
 
 SITENAME = 'Projects'
+
+# Envio de e-mails
+
+MAILERS = {
+    'default': {
+        'BACKEND': 'django.core.mail.backends.smtp.EmailBackend',
+        'OPTIONS': {
+            'host': 'smtp.gmail.com',
+            'port': 587,
+            'username': 'rafasouzalima.rsl@gmail.com',
+            'password': 'vyso uvnf sxbh jzvl',
+            'use_tls': True,
+            'use_ssl': False,
+            'timeout': 20,
+        },
+    },
+}
