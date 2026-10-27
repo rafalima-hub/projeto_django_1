@@ -21,7 +21,7 @@ def post_view(request, id):
     # Obtém os posts do mesmo autor aleatóriamente
     posts = Post.objects.filter(
         user=post.user,
-        is_activate=True,
+        is_active=True,
         is_deleted=False
     ) .exclude(
         # Excluindo o post atual
