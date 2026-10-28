@@ -3,14 +3,24 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+# ... outras configurações ...
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_collected')
+
 
 load_dotenv(BASE_DIR / '.env')
 
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
+DEBUG = False
+
+"""
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
+"""
 
 """# Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
@@ -21,7 +31,7 @@ SECRET_KEY = 'django-insecure-i!9=^m(ynwoi70hr#!&fi(a&2x9w06_pc^(%a@i^w(n4o@#*ab
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True"""
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bloogg.pythonanywhere.com']
 
 
 # Application definition
@@ -72,6 +82,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+"""DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
@@ -83,6 +100,7 @@ DATABASES = {
         },
     }
 }
+"""
 
 """
 # Configurações para MySQL

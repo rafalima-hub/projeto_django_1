@@ -18,7 +18,7 @@ def home(request):
 
     return render(
         request,
-        'projects/home.html',
+        'projects/_.html',
         {
             'tag_title': f'{settings.SITENAME}',
             'posts': posts,
