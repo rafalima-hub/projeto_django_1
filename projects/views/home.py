@@ -15,10 +15,11 @@ def home(request):
 
     # Total de regitros
     total = len(posts)
+    print(total)
 
     return render(
         request,
-        'projects/_.html',
+        'projects/home.html',
         {
             'tag_title': f'{settings.SITENAME}',
             'posts': posts,
